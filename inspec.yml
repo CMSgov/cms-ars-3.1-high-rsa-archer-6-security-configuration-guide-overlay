@@ -1,0 +1,42 @@
+name: cms-ars3.1-rsa-archer-security-configuration-guide-baseline
+title: cms-ars3.1-rsa-archer-security-configuration-guide-baseline
+maintainer: CMS InSpec Dev team
+copyright: 
+copyright_email: 
+license: Apache-2.0
+summary: "CMS ARS3.1 Overlay against RSA Archer Security Configuration Guide InSpec Profile"
+version: 0.1.0
+
+depends:
+- name: rsa-archer-security-configuration-guide-baseline
+  git: https://github.com/mitre/rsa-archer-security-configuration-guide-baseline.git
+  branch: master
+  
+attributes:
+  - name: url
+    type: string
+    required: true
+    default: 'https://urltoarcherapp.org/'
+
+  - name: instancename
+    type: string
+    required: true
+    default: 'archerapp'
+
+  - name: user_domain
+    type: string
+    default: ''
+
+  - name: username
+    type: string
+    required: true
+    default: 'restapiuser'
+
+  - name: password
+    type: string
+    required: true
+    default: <%=ENV['ARCHER_API_PASSWORD']%>
+  
+  - name: ssl_verify
+    type: boolean
+    default: true  
