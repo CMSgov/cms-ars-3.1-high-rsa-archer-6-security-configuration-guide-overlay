@@ -125,6 +125,9 @@ $ inspec exec /path/to/profile --controls rsa-archer-1.1
 
 - Author: Rony Xavier [rx294](https://github.com/rx294)
 
+### License
+This project is licensed under the terms of the Apache license 2.0 (apache-2.0).
+
 ### NOTICE
 
 © 2018 The MITRE Corporation.
