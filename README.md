@@ -14,6 +14,7 @@ The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on 
 ## Get started
 
 ### Installing InSpec 
+The following sections describe how to install InSpec on various platforms.
 
 ### Install InSpec on Unix/Linux/Mac
 
