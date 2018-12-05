@@ -4,8 +4,10 @@ CMS ARS 3.1 Moderate Overlay InSpec Validation Profile for RSA Archer Security C
 The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on the RSA Archer 6.x Platform Security Configuration Guide. For more information about the baseline, please see the following resources. 
 
 - [MITRE RSA Archer 6.x Platform Security Configuration Guide Baseline](https://github.com/mitre/rsa-archer-security-configuration-guide-baseline)
-- [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) 
-- [API Guide](https://community.rsa.com/docs/DOC-41939)
+- [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567)* 
+- [API Guide](https://community.rsa.com/docs/DOC-41939)*
+
+* Requires registering with RSA Security (free).
 
 ## Requirements
 
