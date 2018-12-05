@@ -47,3 +47,22 @@ include_controls 'archer-baseline' do
     end
   end
   
+  control 'rsa-archer-1.7' do
+    desc 'Existing passwords must be restricted to a 60-day maximum lifetime.'
+    tag 'check': 'In security parameters, check if PasswordChangeInterval = 60'
+    tag 'fix': 'In security parameters, set PasswordChangeInterval = 60'
+	    
+    archer_api_helper = archer(url: attribute('url'),
+                               instancename: attribute('instancename'),
+                               user_domain: attribute('user_domain'),
+                               username: attribute('username'),
+                               password: attribute('password'),
+                               ssl_verify: attribute('ssl_verify'))
+
+    describe archer_api_helper do
+    	its('default_administrative_user.PasswordChangeInterval') { should cmp <= 60 }
+    	its('general_user_parameter.PasswordChangeInterval') { should cmp <= 60 }
+    	its('archer_services_parameter.PasswordChangeInterval') { should cmp <= 60 }
+  end
+  end
+  
