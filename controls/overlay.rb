@@ -5,7 +5,7 @@ include_controls 'archer-baseline' do
   control 'rsa-archer-1.1' do
     desc 'Passwords must be a minimum of 15 characters in length.'
     tag 'check': 'In security parameters, check if MinPasswordLength = 15'
-    tag 'fix': 'n security parameters, set MinPasswordLength = 15'
+    tag 'fix': 'In security parameters, set MinPasswordLength = 15'
   end
   
   control 'rsa-archer-1.2' do
