@@ -7,7 +7,7 @@ The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on 
 - [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567)* 
 - [API Guide](https://community.rsa.com/docs/DOC-41939)*
 
-* Requires registering with RSA Security (free).
+&ast; Requires registering with RSA Security (free).
 
 ## Requirements
 
