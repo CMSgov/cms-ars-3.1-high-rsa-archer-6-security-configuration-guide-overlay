@@ -1,22 +1,13 @@
 # cms-ars3.1-rsa-archer-security-configuration-guide-baseline
 CMS ARS 3.1 Moderate Overlay InSpec Validation Profile for RSA Archer Security Configuration Guide Baseline
 
-The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on the RSA Archer 6.4 Platform Security Configuration Guide
+The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on the RSA Archer 6.x Platform Security Configuration Guide.
 
-## Description (as shown on the baseline profile repo):
+For more information about the baseline, please see the following resources. 
 
-This [InSpec](https://github.com/chef/inspec) compliance profile validates the security settings in the RSA Archer Security Configuration Guide in an automated way.
-
-InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.# RSA-Archer-Security-Configuration-Guide-Baseline
-RSA Archer Security Configuration Guide InSpec Profile
-
-Based on the [RSA Archer 6.4 Platform Security Configuration Guide](https://github.com/mitre/rsa-archer-security-configuration-guide-baseline/blob/master/RSA%20Archer%206.4%20Platform%20Security%20Configuration%20Guide.pdf)
-
-## Description
-
-This [InSpec](https://github.com/chef/inspec) compliance profile validates the security settings in the RSA Archer Security Configuration Guide in an automated way.
-
-InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.
+[MITRE RSA Archer 6.x Platform Security Configuration Guide Baseline] (https://github.com/mitre/rsa-archer-security-configuration-guide-baseline)
+[RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) 
+[API Guide](https://community.rsa.com/docs/DOC-41939)
 
 ## Requirements
 
