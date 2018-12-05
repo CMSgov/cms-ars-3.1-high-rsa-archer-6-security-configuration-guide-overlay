@@ -1,15 +1,7 @@
 # encoding: utf-8
 
 include_controls 'archer-baseline' do
-   
-  control '' do
-    title ''
-    desc ''
-    tag 'check': ''
-    tag 'fix': ''
-    impact 0.0
-	end 
-  
+
   control 'rsa-archer-1.1' do
     desc 'Passwords must be a minimum of 15 characters in length.'
     tag 'check': 'In security parameters, check if MinPasswordLength = 15'
