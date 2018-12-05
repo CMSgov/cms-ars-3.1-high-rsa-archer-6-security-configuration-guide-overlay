@@ -5,7 +5,7 @@ The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on 
 
 For more information about the baseline, please see the following resources. 
 
-- [MITRE RSA Archer 6.x Platform Security Configuration Guide Baseline] (https://github.com/mitre/rsa-archer-security-configuration-guide-baseline)
+- [MITRE RSA Archer 6.x Platform Security Configuration Guide Baseline](https://github.com/mitre/rsa-archer-security-configuration-guide-baseline)
 - [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) 
 - [API Guide](https://community.rsa.com/docs/DOC-41939)
 
