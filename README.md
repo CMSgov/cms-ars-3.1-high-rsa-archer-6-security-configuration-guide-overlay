@@ -1,138 +1,78 @@
-# cms-ars3.1-high-rsa-archer-security-configuration-guide-baseline
-CMS ARS 3.1 High Overlay InSpec Validation Profile for RSA Archer Security Configuration Guide Baseline
-
-The Baseline RSA Archer Security Configuration Guide InSpec Profile is based on the RSA Archer 6.x Platform Security Configuration Guide. For more information about the baseline, please see the following resources. 
-
-- [MITRE RSA Archer 6.x Platform Security Configuration Guide Baseline](https://github.com/mitre/rsa-archer-security-configuration-guide-baseline)
-- [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567)* 
-- [API Guide](https://community.rsa.com/docs/DOC-41939)*
-
-&ast; Requires registering with RSA Security (free).
-
-## Requirements
-
-- [InSpec](http://inspec.io/) at least version 2.x
+# cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+InSpec profile overlay to validate the secure configuration of RSA Archer 6.x, against the [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html).
 
 ## Getting Started
 
-### Install InSpec on Unix/Linux/Mac
+It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __the RSA Archer API__.
 
-#### Option 1 Install InSpec (Package installer)
-First things first: We need InSpec on our workstation. For production and standalone environments, I recommend the ChefDK package, since it gives you Chef + Test-Kitchen + InSpec. You can download the package from [https://downloads.chef.io/chefdk](https://downloads.chef.io/chefdk).
+__For the best security of the runner, always install on the runner the _latest version_ of InSpec and supporting Ruby language components.__ 
 
-#### Option 2 Install InSpec (Terminal install)
-Another option is to install InSpec via a command line script:
+Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
+## Required Configurations
+
+The following attributes must be configured in order for the profile to run correctly. These attributes can be configured in inspec.yml file or in an attributes file. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
+    
+| Attribute                     | Required | Default     | Description                                                           |
+| :---                          | :---     | :---        | :---                                                               |
+| url           | yes | `url: 'https://urltoarcherapp.org/'`        | Base URL of the RSA Archer application. |
+| instancenamne | yes | `instancename: archerapp`                   | Name of the RSA Archer instance.        |
+| user_domain   | no  | `user_domain: ''`                           | RSA Archer User Domain.                 |
+| username      | yes | `username: restapiuser`                     | REST API User with at least `Read-Only` access to `Access Control` attributes on Archer.|
+| password      | yes | `password: <%=ENV['ARCHER_API_PASSWORD']%>` | Password of the users is pulled from the ENV. Export the password to "ARCHER_API_PASSWORD". |
+| ssl_verify    | no  | `ssl_verify: true`                          | Set this to 'false' if the Archer application uses self-signed certificates. |
+
+Lastly, set the password for the Archer API using the following command.
 ```
-$ curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -channel stable -P chefdk
-```
-
-#### After Install
-Once InSpec is installed, run `inspec version` to verify that the installation was successful.
-
-
-### Install InSpec on Windows
-
-#### Option 1 (package installer)
-First things first: We need InSpec on our workstation. For production and standalone environments, I recommend the ChefDK package, since it gives you Chef + Test-Kitchen + InSpec. You can download the package from [https://downloads.chef.io/chefdk](https://downloads.chef.io/chefdk).
-
-#### Option 2 (command line)
-Another option is to install InSpec via a Powershell script:
-
-```
-$ . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -channel stable -project chefdk
-```
-
-#### After Install
-Once InSpec is installed, run `inspec version` to verify that the installation was successful.
-  
-### Get the RSA Archer Security Configuration Guide Baseline
-
-You will need to download the InSpec Profile to your `runner` system. You can do this via `git` or the GitHub Web interface, etc.
-
-  a. `git clone https://github.com/mitre/rsa-archer-security-configuration-guide-baseline`, or 
-  
-  b. Save a Zip or tar.gz copy of the master branch from the `Clone or Download` button of this project
-
-### Setting up dependencies in your Ruby and InSpec Environments
-
-The profile uses Bundler to manage needed dependencies - so you will need to installed the needed gems via bundler before you run the profile. Change directories to your your cloned inspec profile then do a `bundle install`. 
-
-  a. `cd rsa-archer-security-configuration-guide-baseline` 
-  
-  b. `bundle install`
-
-## Credentials
-
-The profile uses RSA Archer REST API connection parameters as `attributes` specified below
-
-- url: Base url of the RSA Archer application, (REQUIRED) <br>
-`url: 'https://urltoarcherapp.org/'`
-
-- instancename: Name of the RSA Archer instance (REQUIRED)<br>
-`instancename: archerapp`
-
-- user_domain: RSA Archer User Domain (OPTIONAL)<br>
-`user_domain: ''`
-
-- username: REST API User with at least `Read-Only` access to `Access Control` attributes on archer (REQUIRED)<br>
-`username: restapiuser`
-
-- password: Password of the users is pulled from the ENV <br> Export the password to `ARCHER_API_PASSWORD` (REQUIRED)<br>
-`password: <%=ENV['ARCHER_API_PASSWORD']%>`
-
-- ssl_verify: Set this to `false` if Archer App uses self-signed certs<br>
-`ssl_verify: true`
-
-
-## Usage
-
-InSpec makes it easy to run your tests wherever you need. More options listed here: [InSpec cli](http://inspec.io/docs/reference/cli/)
-
-```
-# Clone Inspec Profile
-$ git clone https://github.com/mitre/rsa-archer-security-configuration-guide-baseline
-
-# Install Gems
-$ bundle install
-
-# Update the attributes specified in `inspec.yml` as required
-
-# Set required ENV variables
 $ export ARCHER_API_PASSWORD=s3cr3tpassw0rd
-
-# To run profile locally and directly from Github with cli & json output 
-$ inspec exec /path/to/profile --reporter cli json:archer-results.json
 ```
 
-### Run individual controls
-
-In order to verify individual controls, just provide the control ids to InSpec:
+## Running This Overlay
+When the __"runner"__ host uses this profile overlay for the first time, follow these instructions: 
 
 ```
-$ inspec exec /path/to/profile --controls rsa-archer-1.1
+mkdir profiles
+cd profiles
+git clone https://github.cms.gov/ispg-dev/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay.git
+git clone https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline.git
+cd cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+bundle install
+inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json
 ```
 
-## Contributors + Kudos
+For every successive run, follow these instructions to always have the latest version:
 
-- Rony Xavier [rx294](https://github.com/rx294)
-- Eugene Aronne [ejaronne](https://github.com/ejaronne)
-- Aaron Lippold [aaronlippold](https://github.com/aaronlippold)
+```
+cd profiles/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+git pull
+cd ../rsa-archer-6-security-configuration-guide-baseline
+git pull
+cd ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+bundle install
+inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json
+```
 
-## License and Author
+## Viewing the JSON Results
 
-### Authors
+The JSON results output file can be loaded into __[heimdall-lite](https://mitre.github.io/heimdall-lite/)__ for a user-interactive, graphical view of the InSpec results. 
 
-- Author: Rony Xavier [rx294](https://github.com/rx294)
+The JSON InSpec results file may also be loaded into a __full heimdall server__, allowing for additional functionality such as to store and compare multiple profile runs.  
 
-### License
-This project is licensed under the terms of the Apache license 2.0 (apache-2.0).
+## Getting Help
+To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg-dev/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay/issues/new).
 
-### NOTICE
+## Authors
+* Eugene Aronne
+* Danny Haynes
 
-© 2018 The MITRE Corporation.
+## Special Thanks
+* Rony Xavier
 
-Approved for Public Release; Distribution Unlimited. Case Number 18-3678.  
+## Additional References
+- [RSA Archer 6.x API Guide](https://community.rsa.com/docs/DOC-41939).
+
+## License
+* This project is licensed under the terms of the [Apache 2.0 license](https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline/blob/master/LICENSE.md).
 
 ### NOTICE  
 
@@ -141,4 +81,3 @@ This software was produced for the U. S. Government under Contract Number HHSM-5
 No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause is authorized without the express written permission of The MITRE Corporation.
 
 For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA  22102-7539, (703) 983-6000.
-
