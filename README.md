@@ -72,7 +72,7 @@ To report a bug or feature request, please open an [issue](https://github.cms.go
 - [RSA Archer 6.x API Guide](https://community.rsa.com/docs/DOC-41939).
 
 ## License
-* This project is licensed under the terms of the [Apache 2.0 license](https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline/blob/master/LICENSE.md).
+* This project is licensed under the terms of the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
 
 ### NOTICE  
 
