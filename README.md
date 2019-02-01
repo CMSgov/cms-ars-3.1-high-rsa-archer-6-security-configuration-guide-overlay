@@ -22,6 +22,12 @@ The following attributes must be configured in order for the profile to run corr
 | password      | yes | `password: <%=ENV['ARCHER_API_PASSWORD']%>` | Password of the users is pulled from the ENV. Export the password to "ARCHER_API_PASSWORD". |
 | ssl_verify    | no  | `ssl_verify: true`                          | Set this to 'false' if the Archer application uses self-signed certificates. |
 
+The following environment variable must also be set in order for the profile to run correctly.
+
+| Environment Variable | Description                                                                   |
+| :---                 | :---                                                                          |
+| ARCHER_API_PASSWORD  | The password used to access Archer through the API as the specified username. |
+
 Lastly, set the password for the Archer API using the following command.
 ```
 $ export ARCHER_API_PASSWORD=s3cr3tpassw0rd
