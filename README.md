@@ -9,7 +9,7 @@ __For the best security of the runner, always install on the runner the _latest 
 
 The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
-The following attributes must be configured in order for the profile to run correctly. These attributes must be configured in an attributes YML file and specified using the ```inspec exec --attrs <attributes-filename>.yml'``` command. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
+The following attributes must be configured in an attributes file and specified using the ```inspec exec --attrs <attributes-filename>.yml'``` command for the profile to run correctly. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
 
 ```
 # Base URL of the RSA Archer application
@@ -31,13 +31,8 @@ password: <%=ENV['ARCHER_API_PASSWORD']%>
 ssl_verify: true`
 ```
 
-The following environment variable must also be set in order for the profile to run correctly.
+The ```ARCHER_API_PASSWORD``` environment variable must also be set using the following command so InSpec can access the RSA Archer application through the API.
 
-| Environment Variable | Description                                                                   |
-| :---                 | :---                                                                          |
-| ARCHER_API_PASSWORD  | The password used to access Archer through the API as the specified username. |
-
-Lastly, set the password for the Archer API using the following command.
 ```
 export ARCHER_API_PASSWORD=s3cr3tpassw0rd
 ```
@@ -52,7 +47,7 @@ git clone https://github.cms.gov/ispg-dev/cms-ars-3.1-high-rsa-archer-security-c
 git clone https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline.git
 cd cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
 bundle install
-inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json
+inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json --attrs archer-attributes.yml
 ```
 
 For every successive run, follow these instructions to always have the latest version:
@@ -64,7 +59,7 @@ cd ../rsa-archer-6-security-configuration-guide-baseline
 git pull
 cd ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
 bundle install
-inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json
+inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json --attrs archer-attributes.yml
 ```
 
 ## Viewing the JSON Results
