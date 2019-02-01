@@ -69,7 +69,7 @@ To report a bug or feature request, please open an [issue](https://github.cms.go
 * Rony Xavier
 
 ## Additional References
-- [RSA Archer 6.x API Guide](https://community.rsa.com/docs/DOC-41939).
+- [RSA Archer 6 API Guide](https://community.rsa.com/docs/DOC-41939).
 
 ## License
 * This project is licensed under the terms of the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
