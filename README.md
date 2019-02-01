@@ -7,13 +7,11 @@ It is intended and recommended that InSpec run this profile from a __"runner"__ 
 
 __For the best security of the runner, always install on the runner the _latest version_ of InSpec and supporting Ruby language components.__ 
 
-Latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
+The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
-## Required Configurations
+The following attributes must be configured in order for the profile to run correctly. These attributes must be configured in an attributes YML file and specified using the ```inspec exec --attrs <attributes-filename>.yml'``` command. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
 
-The following attributes must be configured in order for the profile to run correctly. These attributes can be configured in inspec.yml file or in an attributes file. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
-
-````
+```
 # Base URL of the RSA Archer application
 url: 'https://urltoarcherapp.org/'
 
@@ -31,7 +29,7 @@ password: <%=ENV['ARCHER_API_PASSWORD']%>
 
 # Set to 'false' if the RSA Archer application uses self-signed certificates
 ssl_verify: true`
-````
+```
 
 The following environment variable must also be set in order for the profile to run correctly.
 
@@ -41,7 +39,7 @@ The following environment variable must also be set in order for the profile to 
 
 Lastly, set the password for the Archer API using the following command.
 ```
-$ export ARCHER_API_PASSWORD=s3cr3tpassw0rd
+export ARCHER_API_PASSWORD=s3cr3tpassw0rd
 ```
 
 ## Running This Overlay
