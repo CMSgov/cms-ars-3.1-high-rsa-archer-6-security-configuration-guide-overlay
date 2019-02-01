@@ -12,15 +12,26 @@ Latest versions and installation options are available at the [InSpec](http://in
 ## Required Configurations
 
 The following attributes must be configured in order for the profile to run correctly. These attributes can be configured in inspec.yml file or in an attributes file. More information about InSpec attributes can be found [here](https://www.inspec.io/docs/reference/profiles/).
-    
-| Attribute                     | Required | Default     | Description                                                           |
-| :---                          | :---     | :---        | :---                                                               |
-| url           | yes | `url: 'https://urltoarcherapp.org/'`        | Base URL of the RSA Archer application. |
-| instancenamne | yes | `instancename: archerapp`                   | Name of the RSA Archer instance.        |
-| user_domain   | no  | `user_domain: ''`                           | RSA Archer User Domain.                 |
-| username      | yes | `username: restapiuser`                     | REST API User with at least `Read-Only` access to `Access Control` attributes on Archer.|
-| password      | yes | `password: <%=ENV['ARCHER_API_PASSWORD']%>` | Password of the users is pulled from the ENV. Export the password to "ARCHER_API_PASSWORD". |
-| ssl_verify    | no  | `ssl_verify: true`                          | Set this to 'false' if the Archer application uses self-signed certificates. |
+
+````
+# Base URL of the RSA Archer application
+url: 'https://urltoarcherapp.org/'
+
+# Name of the RSA Archer instance
+instancename: 'archerapp'
+
+# RSA Archer user domain
+user_domain: ''
+
+# REST API user with at least 'read-only' access ot 'access control' attributes on RSA Archer
+username: 'restapiuser'
+
+# Password of the user is pulled from the environment variable
+password: <%=ENV['ARCHER_API_PASSWORD']%>
+
+# Set to 'false' if the RSA Archer application uses self-signed certificates
+ssl_verify: true`
+````
 
 The following environment variable must also be set in order for the profile to run correctly.
 
