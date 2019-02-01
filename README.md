@@ -1,5 +1,5 @@
 # cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
-InSpec profile overlay to validate the secure configuration of RSA Archer 6.x, against the [RSA Archer 6.x Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html).
+InSpec profile overlay to validate the secure configuration of RSA Archer 6, against the [RSA Archer 6 Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html).
 
 ## Getting Started
 
