@@ -38,28 +38,30 @@ export ARCHER_API_PASSWORD=s3cr3tpassw0rd
 ```
 
 ## Running This Overlay
-When the __"runner"__ host uses this profile overlay for the first time, follow these instructions: 
+When the __"runner"__ host uses this profile overlay for the first time, follow these steps: 
 
 ```
 mkdir profiles
 cd profiles
 git clone https://github.cms.gov/ispg-dev/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay.git
-git clone https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline.git
+git clone https://github.com/mitre/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay.git
 cd cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
 bundle install
-inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json --attrs archer-attributes.yml
+cd ..
+inspec exec cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
 ```
 
-For every successive run, follow these instructions to always have the latest version:
+For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
 
 ```
-cd profiles/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+cd profiles/cms-ars-3.1-high-microsoft-windows-2012r2-member-server-stig-overlay
 git pull
-cd ../rsa-archer-6-security-configuration-guide-baseline
+cd ../microsoft-windows-2012r2-memberserver-stig-baseline
 git pull
-cd ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+cd ../cms-ars-3.1-high-microsoft-windows-2012r2-member-server-stig-overlay
 bundle install
-inspec exec ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter cli json:archer-overlay-results.json --attrs archer-attributes.yml
+cd ..
+inspec exec cms-ars-3.1-high-microsoft-windows-2012r2-member-server-stig-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
 ```
 
 ## Viewing the JSON Results
