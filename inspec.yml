@@ -8,9 +8,8 @@ summary: "CMS ARS3.1 Overlay against RSA Archer Security Configuration Guide InS
 version: 0.1.0
 
 depends:
-- name: archer-baseline #- name: rsa-archer-security-configuration-guide-baseline
-  git: https://github.com/mitre/rsa-archer-security-configuration-guide-baseline.git
-  branch: master
+- name: archer-baseline 
+  path: ../rsa-archer-security-configuration-guide-baseline
   
 attributes:
   - name: url
