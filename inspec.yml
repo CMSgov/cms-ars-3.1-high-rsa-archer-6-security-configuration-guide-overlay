@@ -1,15 +1,15 @@
-name: cms-ars-3.1-rsa-archer-security-configuration-guide-overlay
-title: cms-ars-3.1-rsa-archer-security-configuration-guide-overlay
+name: cms-ars-3.1-rsa-archer-6-security-configuration-guide-overlay
+title: 
 maintainer: CMS InSpec Dev team
-copyright: (c) 2018 The MITRE Corporation
+copyright: 
 copyright_email: 
 license: Apache-2.0
-summary: "CMS ARS3.1 Overlay against RSA Archer Security Configuration Guide InSpec Profile"
+summary: 
 version: 0.1.0
 
 depends:
-- name: archer-baseline 
-  path: ../rsa-archer-security-configuration-guide-baseline
+- name: rsa-archer-6-security-configuration-guide-baseline 
+  path: ../rsa-archer-6-security-configuration-guide-baseline
   
 attributes:
   - name: url
