@@ -1,4 +1,4 @@
-# cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+# cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
 InSpec profile overlay to validate the secure configuration of RSA Archer 6, against the [RSA Archer 6 Platform Security Configuration Guide](https://community.rsa.com/docs/DOC-32567) tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as High.
 
 ## Getting Started
@@ -43,24 +43,24 @@ When the __"runner"__ host uses this profile overlay for the first time, follow 
 ```
 mkdir profiles
 cd profiles
-git clone https://github.cms.gov/ispg/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay.git
-git clone https://github.com/mitre/rsa-archer-security-configuration-guide-baseline.git
-cd cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+git clone https://github.cms.gov/ispg/cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay.git
+git clone https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline.git
+cd cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
+inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
 ```
 
 For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
 
 ```
-cd profiles/rsa-archer-security-configuration-guide-baseline
+cd profiles/rsa-archer-6-security-configuration-guide-baseline
 git pull
-cd ../cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay
+cd ../cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
 git pull
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
+inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
 ```
 
 ## Viewing the JSON Results
@@ -70,7 +70,7 @@ The JSON results output file can be loaded into __[heimdall-lite](https://mitre.
 The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
 ## Getting Help
-To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg/cms-ars-3.1-high-rsa-archer-security-configuration-guide-overlay/issues/new).
+To report a bug or feature request, please open an [issue](https://github.cms.gov/ispg/cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay/issues/new).
 
 ## Authors
 * Eugene Aronne
