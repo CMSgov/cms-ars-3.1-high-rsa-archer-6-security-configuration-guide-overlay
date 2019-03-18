@@ -9,7 +9,7 @@ version: 0.1.0
 
 depends:
 - name: rsa-archer-6-security-configuration-guide-baseline 
-  path: ../rsa-archer-6-security-configuration-guide-baseline
+  path: rsa-archer-6-security-configuration-guide-baseline
   
 attributes:
   - name: url
