@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-include_controls 'archer-baseline' do
+include_controls 'rsa-archer-6-security-configuration-guide-baseline' do
 
   control 'rsa-archer-1.1' do
     desc 'Passwords must be a minimum of 15 characters in length.'
