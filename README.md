@@ -48,7 +48,7 @@ git clone https://github.com/mitre/rsa-archer-6-security-configuration-guide-bas
 cd cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
+inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
@@ -60,7 +60,7 @@ cd ../cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
 git pull
 bundle install
 cd ..
-inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json> --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml>
+inspec exec cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay --attrs=<path_to_your_attributes_file/name_of_your_attributes_file.yml> --target=winrm://<your_target_host_name_or_ip_address> --user=<target_account_with_administrative_privileges> --password=<password_for_target_account> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
 ## Viewing the JSON Results
