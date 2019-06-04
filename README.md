@@ -12,17 +12,17 @@ The latest versions and installation options are available at the [InSpec](http:
 The following attributes must be configured in an attributes file for the profile to run correctly. More information about InSpec attributes can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
-# Base URL of the RSA Archer application
-url: 'https://urltoarcherapp.org/'
+# Base URL of the RSA Archer application (e.g., 'https://urltoarcherapp.org/')
+url: ''
 
-# Name of the RSA Archer instance
-instancename: 'archerapp'
+# Name of the RSA Archer instance (e.g., 'archerapp')
+instancename: ''
 
 # RSA Archer user domain
 user_domain: ''
 
-# REST API user with at least 'read-only' access ot 'access control' attributes on RSA Archer
-username: 'restapiuser'
+# REST API user with at least 'read-only' access ot 'access control' attributes on RSA Archer (e.g., 'restapiuser')
+username: ''
 
 # Password of the user is pulled from the environment variable
 password: <%=ENV['ARCHER_API_PASSWORD']%>
