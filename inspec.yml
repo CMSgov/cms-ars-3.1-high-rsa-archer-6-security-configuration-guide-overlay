@@ -15,30 +15,36 @@ attributes:
   - name: url
     type: string
     required: true
-    default: 'https://urltoarcherapp.org/'
+    default: ''
+    description: Base URL of the RSA Archer application (e.g., 'https://urltoarcherapp.org/')
 
   - name: instancename
     type: string
     required: true
-    default: 'archerapp'
+    default: ''
+    description: Name of the RSA Archer instance (e.g., 'archerapp')
 
   - name: user_domain
     type: string
     default: ''
+    description: RSA Archer user domain
 
   - name: username
     type: string
     required: true
-    default: 'restapiuser'
+    default: ''
+    description: REST API user with at least 'read-only' access ot 'access control' attributes on RSA Archer (e.g., 'restapiuser')
 
   - name: password
     type: string
     required: true
     default: '<%=ENV['ARCHER_API_PASSWORD']%>'
+    description: Password of the user is pulled from the environment variable
   
   - name: ssl_verify
     type: boolean
     default: true  
+    description: Set to 'false' if the RSA Archer application uses self-signed certificates
 
   - name: minimum_password_length
     type: numeric
