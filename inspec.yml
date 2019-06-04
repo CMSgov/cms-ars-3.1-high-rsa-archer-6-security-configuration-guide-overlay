@@ -1,10 +1,10 @@
 name: cms-ars-3.1-rsa-archer-6-security-configuration-guide-overlay
-title: 
+title: .
 maintainer: CMS InSpec Dev team
-copyright: 
+copyright: .
 copyright_email: 
 license: Apache-2.0
-summary: 
+summary: .
 version: 0.1.0
 
 depends:
