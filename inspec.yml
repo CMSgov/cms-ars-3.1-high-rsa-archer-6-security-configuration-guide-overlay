@@ -1,77 +1,92 @@
-name: cms-ars-3.1-rsa-archer-6-security-configuration-guide-overlay
-title: .
+name: cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
+title: cms-ars-3.1-high-rsa-archer-6-security-configuration-guide-overlay
 maintainer: CMS InSpec Dev team
 copyright: .
 copyright_email: 
 license: Apache-2.0
-summary: .
-version: 0.1.0
+summary: "CMS ARS 3.1 High Overlay InSpec Validation Profile for RSA Archer 6.x Platform Security Configuration Guide"
+version: 6.0.0
+inspec_version: ">= 4.0"
 
 depends:
-- name: rsa-archer-6-security-configuration-guide-baseline 
-  path: ../rsa-archer-6-security-configuration-guide-baseline
+- name: rsa-archer-6-security-configuration-guide-baseline
+  url: https://github.com/mitre/rsa-archer-6-security-configuration-guide-baseline/archive/master.tar.gz
   
-attributes:
+inputs:
   - name: url
     type: string
     required: true
-    default: ''
+    value: ''
+    sensitive: true
     description: Base URL of the RSA Archer application (e.g., 'https://urltoarcherapp.org/')
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: instancename
     type: string
     required: true
-    default: ''
+    value: ''
+    sensitive: true
     description: Name of the RSA Archer instance (e.g., 'archerapp')
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: user_domain
     type: string
-    default: ''
+    value: ''
+    sensitive: true
     description: RSA Archer user domain
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: username
     type: string
     required: true
-    default: ''
+    value: ''
+    sensitive: true
     description: REST API user with at least 'read-only' access ot 'access control' attributes on RSA Archer (e.g., 'restapiuser')
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: password
     type: string
     required: true
-    default: '<%=ENV['ARCHER_API_PASSWORD']%>'
+    value: '<%=ENV['ARCHER_API_PASSWORD']%>'
+    sensitive: true
     description: Password of the user is pulled from the environment variable
+    profile: rsa-archer-6-security-configuration-guide-baseline
   
   - name: ssl_verify
     type: boolean
-    default: true  
+    value: true  
     description: Set to 'false' if the RSA Archer application uses self-signed certificates
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: minimum_password_length
     type: numeric
     required: false
-    default: 15
-    description: 'The minimum number of characters for passwords.' 
+    value: 15
+    description: 'The minimum number of characters for passwords.'
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: minimum_alpha_characters
     type: numeric
     required: false
-    default: 1
+    value: 1
     description: 'The minimum number of alpha characters that must be present in passwords.'
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: password_change_interval
     type: numeric
     required: false
-    default: 60
+    value: 60
     description: 'The maximum lifetime for passwords in days.'
+    profile: rsa-archer-6-security-configuration-guide-baseline
 
   - name: previous_passwords_disallowed
     type: numeric
     required: false 
-    default: 12
+    value: 12
     description: 'The minimum number of password generations that are prohibited from reuse.'
 
   - name: session_timeout
     type: numeric
     required: false
-    default: 15
+    value: 15
     description: 'The number of minutes at which point the operating system must initiate a session timeout.'
